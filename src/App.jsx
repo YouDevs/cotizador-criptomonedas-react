@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
-import ImagenCripto from './../public/imagen-criptos.png'
+import ImagenCripto from './imagen-criptos.png'
 
 const Contenedor = styled.div`
   max-width: 900px;
