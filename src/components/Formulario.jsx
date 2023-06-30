@@ -14,6 +14,7 @@ const InputSubmit = styled.input`
     font-size: 20px;
     border-radius: 5px;
     transition: background-color .3s ease;
+    margin-top: 30px;
 
     &:hover {
         background-color: #7A7DFE;
@@ -25,7 +26,7 @@ const InputSubmit = styled.input`
 const Formulario = () => {
 
     // Extrae mi custom hook:
-    const [SelectMonedas] = useSelectMonedas('Eligen tu moneda', monedas)
+    const [SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas)
 
 
     // Manda a llamar como función a mi custom hook:
