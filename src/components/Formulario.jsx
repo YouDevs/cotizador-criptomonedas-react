@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 // Importa custom hook:
 import useSelectMonedas from '../hooks/useSelectMonedas'
+import {monedas} from '../data/monedas'
 
 const InputSubmit = styled.input`
     background-color: #9497ff;
@@ -24,8 +25,8 @@ const InputSubmit = styled.input`
 const Formulario = () => {
 
     // Extrae mi custom hook:
-    const [SelectMonedas] = useSelectMonedas('Eligen tu moneda')
-    const [SelectCriptomonedas] = useSelectMonedas('Eligen tu criptomoneda')
+    const [SelectMonedas] = useSelectMonedas('Eligen tu moneda', monedas)
+
 
     // Manda a llamar como función a mi custom hook:
     // SelectMonedas()
@@ -34,7 +35,6 @@ const Formulario = () => {
     <form>
         {/* Manda llamar como componente mi custom hook */}
         <SelectMonedas />
-        <SelectCriptomonedas />
         <InputSubmit
             type="submit"
             value="Cotizar"
