@@ -1,4 +1,6 @@
 import styled from '@emotion/styled'
+// Importa custom hook:
+import useSelectMonedas from '../hooks/useSelectMonedas'
 
 const InputSubmit = styled.input`
     background-color: #9497ff;
@@ -20,6 +22,12 @@ const InputSubmit = styled.input`
 `
 
 const Formulario = () => {
+
+    // Extrae función de mi custom hook:
+    const [SelectMonedas] = useSelectMonedas()
+
+    SelectMonedas()
+
   return (
     <form>
         <InputSubmit
