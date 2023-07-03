@@ -29,6 +29,7 @@ const Formulario = () => {
     const [criptos, setCriptos] = useState([])
     // Extrae mi custom hook:
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas)
+    const [criptomoneda, SelectCriptomoneda] = useSelectMonedas('Elige tu criptomoneda', criptos)
 
     useEffect(() => {
 
@@ -44,7 +45,7 @@ const Formulario = () => {
                 // console.log(cripto.CoinInfo)
                 const objeto = {
                     id: cripto.CoinInfo.Name,
-                    name: cripto.CoinInfo.FullName,
+                    nombre: cripto.CoinInfo.FullName,
                 }
                 return objeto
             })
@@ -60,7 +61,7 @@ const Formulario = () => {
     <form>
         {/* Manda llamar como componente mi custom hook */}
         <SelectMonedas />
-        {moneda}
+        <SelectCriptomoneda />
         <InputSubmit
             type="submit"
             value="Cotizar"
