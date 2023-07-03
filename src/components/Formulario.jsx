@@ -1,3 +1,4 @@
+import { useState,useEffect } from 'react'
 import styled from '@emotion/styled'
 // Importa custom hook:
 import useSelectMonedas from '../hooks/useSelectMonedas'
@@ -25,12 +26,35 @@ const InputSubmit = styled.input`
 
 const Formulario = () => {
 
+    const [criptos, setCriptos] = useState([])
     // Extrae mi custom hook:
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas)
 
+    useEffect(() => {
 
-    // Manda a llamar como función a mi custom hook:
-    // SelectMonedas()
+        const consultarAPI = async () => {
+            const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD`
+
+            const respuesta = await fetch(url)
+            // console.log(respuesta)
+            const resultado = await respuesta.json()
+            // console.log(resultado.Data)
+
+            const arrayCriptos = resultado.Data.map(cripto => {
+                // console.log(cripto.CoinInfo)
+                const objeto = {
+                    id: cripto.CoinInfo.Name,
+                    name: cripto.CoinInfo.FullName,
+                }
+                return objeto
+            })
+
+            setCriptos(arrayCriptos)
+
+        }
+
+        consultarAPI()
+    }, [])
 
   return (
     <form>
