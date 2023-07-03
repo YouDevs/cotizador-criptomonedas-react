@@ -26,7 +26,7 @@ const InputSubmit = styled.input`
 const Formulario = () => {
 
     // Extrae mi custom hook:
-    const [SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas)
+    const [moneda, SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas)
 
 
     // Manda a llamar como función a mi custom hook:
@@ -36,6 +36,7 @@ const Formulario = () => {
     <form>
         {/* Manda llamar como componente mi custom hook */}
         <SelectMonedas />
+        {moneda}
         <InputSubmit
             type="submit"
             value="Cotizar"
