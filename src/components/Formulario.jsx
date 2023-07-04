@@ -61,8 +61,7 @@ const Formulario = ({setMonedas}) => {
 
 
     const handleSubmit = e => {
-        e.preventDefault();
-        console.log("Estamos enviando el form")
+        e.preventDefault()
 
         if([moneda, criptomoneda].includes('')) {
             setError(true)
